@@ -6,7 +6,7 @@ import json
 def rate(currency):
     url = "https://www.cbr-xml-daily.ru/daily_json.js"
 
-    response: HTTPResponse =  request.urlopen(url)
+    response: HTTPResponse = request.urlopen(url)
     result = response.read().decode("utf-8")
     # print(result)
 
