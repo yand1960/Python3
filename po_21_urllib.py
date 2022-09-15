@@ -4,28 +4,33 @@ from urllib import request
 from http.client import HTTPResponse
 
 
-def usd_rate():
-    url = "http://cbr.ru/"
+class CbrRate:
 
-    response: HTTPResponse =  request.urlopen(url)
-    result = response.read().decode("utf-8")
-    # print(result)
+    def __init__(self):
+        self.url = "http://cbr.ru/"
 
-    pattern = '<div class="col-md-2 col-xs-9 _dollar">USD</div>'
-    position = result.find(pattern)
-    result = result[position: position + 200]
+    def usd_rate(self):
 
-    pattern = '₽'
-    position = result.find(pattern)
-    result = result[position - 15: position]
+        response: HTTPResponse =  request.urlopen(self.url)
+        result = response.read().decode("utf-8")
+        # print(result)
 
-    pattern = '>'
-    position = result.find(pattern)
-    result = result[position + 1: ].strip(" ").replace(",", ".")
+        pattern = '<div class="col-md-2 col-xs-9 _dollar">USD</div>'
+        position = result.find(pattern)
+        result = result[position: position + 200]
 
-    return float(result)
+        pattern = '₽'
+        position = result.find(pattern)
+        result = result[position - 15: position]
+
+        pattern = '>'
+        position = result.find(pattern)
+        result = result[position + 1: ].strip(" ").replace(",", ".")
+
+        return float(result)
 
 
 if __name__ == "__main__":
-    print(usd_rate() * 2)
+    cbr = CbrRate()
+    print(cbr.usd_rate() * 2)
 
