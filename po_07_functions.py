@@ -22,18 +22,19 @@ def plus_minus(x: int, y: int) -> [int, int]:
     result2 = x - y
     return result1, result2
 
-print(plus(1, 2))
-result = plus(1, 2)
-print(result)
-print(plus("a", "b"))
+if __name__ == "__main__":
+    print(plus(1, 2))
+    result = plus(1, 2)
+    print(result)
+    print(plus("a", "b"))
 
-print(minus(y=2, x=1))
-print(minus(y=3))
+    print(minus(y=2, x=1))
+    print(minus(y=3))
 
-print(summa(123, 22, 33, 44, 55))
+    print(summa(123, 22, 33, 44, 55))
 
-dummy(123, a=1234, aa=2222, c=3333)
-a, b = plus_minus(1, 2)
-print(a)
-print(b)
+    dummy(123, a=1234, aa=2222, c=3333)
+    a, b = plus_minus(1, 2)
+    print(a)
+    print(b)
 
