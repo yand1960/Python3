@@ -1,3 +1,4 @@
+import params
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
 from po_29_enterprize_calc.buslog.calculations import Calculations
 
@@ -26,7 +27,7 @@ class Calc(QWidget):
 
         self.show()
 
-        self.calculations = Calculations("calcs.csv")
+        self.calculations = Calculations(params.CONNECTION_STRING)
 
     def btnPlus_click(self):
         x = int(self.txtX.text())
